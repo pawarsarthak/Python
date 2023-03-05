@@ -1,0 +1,12 @@
+obj_var = df.select_dtypes(include='object')
+
+for col in df.select_dtypes(include='object'):
+    print("Value counts before label encoding for column : ",col)
+    print(df[col].value_counts())
+    # Perform label encoding
+    le = LabelEncoder()
+    df[col] = le.fit_transform(df[col])
+
+    # Print the value counts after label encoding
+    print("Value counts after label encoding for column : ",col)
+    print(df[col].value_counts())
